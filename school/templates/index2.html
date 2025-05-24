@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>學生系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>學生系統</h1>
+
+        <!-- 登入表單 -->
+        <h2>登入</h2>
+        <form id="loginForm">
+            <label for="username">帳號:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">密碼:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">登入</button>
+        </form>
+        <div class="forgot-password">
+            <a href="#">忘記密碼?</a>
+        </div>
+
+        <!-- 成績報表 -->
+        <h2>成績報表</h2>
+        <form id="reportForm">
+            <label for="semester">學期:</label>
+            <select id="semester" name="semester">
+                <option value="2023-1">2023年第一學期</option>
+                <option value="2023-2">2023年第二學期</option>
+            </select>
+            
+            <label for="course">課程:</label>
+            <select id="course" name="course">
+                <option value="math">數學</option>
+                <option value="english">英語</option>
+            </select>
+            
+            <button type="submit">篩選</button>
+        </form>
+        
+        <table>
+            <tr>
+                <th>學生姓名</th>
+                <th>課程名稱</th>
+                <th>學期</th>
+                <th>成績</th>
+                <th>評語</th>
+            </tr>
+            <tr>
+                <td>張三</td>
+                <td>數學</td>
+                <td>2023年第一學期</td>
+                <td>85</td>
+                <td>表現良好</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>英語</td>
+                <td>2023年第一學期</td>
+                <td>90</td>
+                <td>優異表現</td>
+            </tr>
+            <!-- 更多學生資料 -->
+        </table>
+
+        <button onclick="exportReport()">匯出報表</button>
+        <button onclick="printReport()">列印報表</button>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 防止表單提交
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // 在這裡可以將帳密發送到後端進行驗證
+            console.log('帳號:', username);
+            console.log('密碼:', password);
+            alert('登入成功！'); // 測試用的提示
+        });
+
+        document.getElementById('reportForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 防止表單提交
+            const semester = document.getElementById('semester').value;
+            const course = document.getElementById('course').value;
+
+            // 在這裡可以根據篩選條件更新報表
+            console.log('學期:', semester);
+            console.log('課程:', course);
+            alert('報表已更新！'); // 測試用的提示
+        });
+
+        function exportReport() {
+            alert("匯出功能尚未實作");
+        }
+
+        function printReport() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

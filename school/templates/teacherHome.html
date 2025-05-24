@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教職員專區</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif; /* 推薦使用思源黑體或其他適合中文字體的字體 */
+            background-color: #f8f9fa; /* 淺灰色背景 */
+            min-height: 100vh; /* 確保內容至少佔滿整個視窗高度 */
+            display: flex;
+            flex-direction: column; /* 讓 header, main-content, footer 垂直排列 */
+        }
+        .header {
+            background-color: #e9ecef; /* 淺灰色標頭背景 */
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 標頭陰影 */
+        }
+        .header h1 {
+            color: #343a40; /* 深灰色標題文字 */
+            margin-bottom: 10px;
+        }
+        .header h2 {
+            color: #555; /* 淺一點的灰色文字 */
+            font-weight: normal;
+        }
+        .main-content {
+            flex-grow: 1; /* 讓主內容區塊佔據剩餘空間，將頁尾推到底部 */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 讓按鈕從頂部開始排列 */
+            gap: 30px; /* 按鈕間距 */
+            padding: 30px;
+            flex-wrap: wrap; /* 當螢幕寬度不足時，按鈕會自動換行 */
+        }
+        .dashboard-button {
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 12px; /* 圓角更明顯 */
+            padding: 25px; /* 內距更大 */
+            text-align: center;
+            width: 320px; /* 稍寬一點 */
+            height: 220px; /* 稍高一點 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none; /* 移除下劃線 */
+            color: #343a40; /* 文字顏色 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影更明顯 */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* 平滑過渡效果 */
+        }
+        .dashboard-button:hover {
+            transform: translateY(-8px); /* 懸停時向上浮動更多 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 懸停時陰影更深 */
+            color: #0056b3; /* 懸停時文字顏色變化 */
+        }
+        .button-icon {
+            font-size: 60px; /* 圖示更大 */
+            margin-bottom: 15px; /* 增加與文字的間距 */
+            color: #007bff; /* 圖示顏色 */
+        }
+        .dashboard-button h3 {
+            margin-bottom: 0; /* 移除 h3 預設下邊距 */
+            font-size: 1.5rem; /* 標題字體大小 */
+        }
+        .footer {
+            background-color: #343a40; /* 深灰色頁尾背景 */
+            color: #dee2e6; /* 淺灰色文字 */
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px; /* 與主內容區塊的間距 */
+            width: 100%;
+        }
+        .footer a {
+            color: #007bff; /* 連結顏色 */
+            text-decoration: none; /* 移除下劃線 */
+        }
+        .footer a:hover {
+            text-decoration: underline; /* 懸停時顯示下劃線 */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>教職員專區</h1>
+        <h2><span id="teacherName">王小明</span> 先生 您好!</h2>
+    </div>
+
+    <div class="main-content">
+        <a href="#" class="dashboard-button">
+            <i class="fas fa-users button-icon"></i> 
+            <h3>學生名單</h3>
+        </a>
+        <a href="#" class="dashboard-button">
+            <i class="fas fa-book button-icon"></i> 
+            <h3>課程資訊管理</h3>
+        </a>
+        <a href="#" class="dashboard-button">
+            <i class="fas fa-award button-icon"></i> 
+            <h3>成績資訊管理</h3>
+        </a>
+    </div>
+
+    <footer class="footer">
+        <p>
+            探索教育新可能，智慧管理，成就未來。</p>
+        <p>© 2025 智慧校園管理系統 | <a href="#">隱私權政策</a> | <a href="#">使用條款</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // 這裡可以使用 JavaScript 動態設定教職員姓名
+        // 例如，從您的後端 API 取得登入者的姓名，並設定到 span#teacherName 元素中
+        // const teacherName = "李美麗"; // 假設從後端獲取到的姓名
+        // document.getElementById("teacherName").textContent = teacherName;
+    </script>
+</body>
+</html>
