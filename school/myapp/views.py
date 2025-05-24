@@ -40,12 +40,12 @@ def login_view(request):
                     # 重定向到教職員首頁
                     # 可以在這裡將用戶姓名儲存到 session 中，以便 teacherHome.html 顯示
                     request.session['user_name'] = user_data['name']
-                    return redirect('teacher_home') # 使用命名 URL 'teacher_home'
+                    return redirect('teacherHome') # 使用命名 URL 'teacher_home'
                 elif selected_role == 'student':
                     # 重定向到學生首頁
                     # 同樣，儲存姓名到 session
                     request.session['user_name'] = user_data['name']
-                    return redirect('student_home') # 使用命名 URL 'student_home'
+                    return redirect('studentHome') # 使用命名 URL 'student_home'
                 else:
                     # 未知的身份選擇，返回登入頁面並顯示錯誤
                     return render(request, 'login.html', {'error': '選擇的身份無效。'})
@@ -63,24 +63,9 @@ def login_view(request):
 def teacherHome(request):
     # 從 session 獲取用戶名，如果沒有則使用預設值
     user_name = request.session.get('user_name', '教職員')
-    return render(request, 'teacher_dashboard.html', {'user_name': user_name})
+    return render(request, 'teacherHome.html', {'user_name': user_name})
 
 def studentHome(request):
     # 從 session 獲取用戶名，如果沒有則使用預設值
     user_name = request.session.get('user_name', '學生')
-    return render(request, 'student_dashboard.html', {'user_name': user_name})
-
-# def index(request):
-#     return render(request, 'index.html', locals())
-
-# def course(request):
-#     return render(request, 'course.html', locals())
-
-# def score(request):
-#     return render(request, 'score.html', locals())
-
-# def settings(request):
-#     return render(request, 'settings.html', locals())
-
-# def student(request):
-#     return render(request, 'student.html', locals())
+    return render(request, 'studentHome.html', {'user_name': user_name})
